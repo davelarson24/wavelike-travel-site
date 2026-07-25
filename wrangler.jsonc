@@ -1,0 +1,8 @@
+{
+  "name": "wavelike-travel-site",
+  "compatibility_date": "2026-07-25",
+  "assets": {
+    "directory": "./",
+    "not_found_handling": "404-page"
+  }
+}
