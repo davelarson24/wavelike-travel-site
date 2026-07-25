@@ -817,6 +817,14 @@
     border: 1px solid rgba(27,79,88,0.16);
     border-radius: 999px;
     padding: 8px 16px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background var(--dur-instant) ease, border-color var(--dur-instant) ease;
+  }
+
+  .supplier-badge:hover, .supplier-badge:focus-visible {
+    background: rgba(27,79,88,0.12);
+    border-color: rgba(27,79,88,0.3);
   }
 
   .process-grid {
@@ -1134,14 +1142,14 @@
       </div>
     </div>
     <div class="supplier-creds reveal">
-      <div class="supplier-label">Supplier certifications</div>
+      <div class="supplier-label">Supplier certifications — tap any to learn more</div>
       <div class="supplier-badge-row">
-        <span class="supplier-badge">Norwegian Cruise Line</span>
-        <span class="supplier-badge">Carnival</span>
-        <span class="supplier-badge">Royal Caribbean</span>
-        <span class="supplier-badge">Disney Cruise Line</span>
-        <span class="supplier-badge">Disney Resorts</span>
-        <span class="supplier-badge">Sandals Resorts</span>
+        <a class="supplier-badge" href="/norwegian-cruise-line-travel-advisor.html">Norwegian Cruise Line</a>
+        <a class="supplier-badge" href="/carnival-cruise-line-travel-advisor.html">Carnival</a>
+        <a class="supplier-badge" href="/royal-caribbean-travel-advisor.html">Royal Caribbean</a>
+        <a class="supplier-badge" href="/disney-cruise-line-travel-advisor.html">Disney Cruise Line</a>
+        <a class="supplier-badge" href="/disney-resorts-travel-advisor.html">Disney Resorts</a>
+        <a class="supplier-badge" href="/sandals-resorts-travel-advisor.html">Sandals Resorts</a>
       </div>
     </div>
     <div class="process-grid">
