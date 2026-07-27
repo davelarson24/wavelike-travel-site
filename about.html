@@ -5,12 +5,12 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>About Dave &amp; Deanna | Waveline Travel</title>
 <meta name="description" content="Meet Dave and Deanna of Waveline Travel — a two-person cruise and resort advisory team near Austin, Texas. We've taken these trips ourselves, and we help others plan theirs.">
-<link rel="canonical" href="https://wavelinetravel.com/about.html">
+<link rel="canonical" href="https://wavelinetravel.com/about">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="About Dave &amp; Deanna | Waveline Travel">
 <meta property="og:description" content="A two-person cruise and resort advisory team near Austin, Texas. We've taken these trips ourselves, and we help others plan theirs.">
-<meta property="og:url" content="https://wavelinetravel.com/about.html">
+<meta property="og:url" content="https://wavelinetravel.com/about">
 <meta property="og:image" content="https://wavelinetravel.com/og-image.jpg">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="About Dave &amp; Deanna | Waveline Travel">
@@ -21,7 +21,7 @@
 {
   "@context": "https://schema.org",
   "@type": "AboutPage",
-  "url": "https://wavelinetravel.com/about.html",
+  "url": "https://wavelinetravel.com/about",
   "name": "About Dave & Deanna | Waveline Travel",
   "mainEntity": {
     "@type": "TravelAgency",
@@ -293,22 +293,6 @@
     padding: 18px;
   }
 
-  .draft {
-    border-left: 3px solid var(--amber);
-    padding-left: 16px;
-    background: rgba(228,160,50,0.05);
-  }
-
-  .draft-note {
-    display: inline-block;
-    font-size: 10.5px;
-    font-weight: 700;
-    letter-spacing: 0.14em;
-    text-transform: uppercase;
-    color: var(--amber);
-    margin-bottom: 4px;
-  }
-
   /* ---------- Credentials strip ---------- */
 
   .cred-strip {
@@ -414,7 +398,7 @@
   <nav class="site-nav">
     <a href="/#specialties">Cruises</a>
     <a href="/#specialties">Resorts</a>
-    <a href="/about.html">About</a>
+    <a href="/about">About</a>
     <a href="/#credentials">Credentials</a>
     <a class="nav-cta" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">Book a consult</a>
   </nav>
@@ -430,10 +414,7 @@
           <div class="eyebrow">About us</div>
           <h1>We're Dave and Deanna.</h1>
           <!-- REPLACE: two or three sentences on who you are and how Waveline started. -->
-          <div class="draft">
-            <span class="draft-note">Draft — replace</span>
-            <p class="lede">We're a two-person team based just outside Austin, Texas. We help people plan cruises and resort trips, and we take these trips ourselves — which is how we know which questions are worth asking.</p>
-          </div>
+          <p class="lede">We're a two-person team based just outside Austin, Texas. We help people plan cruises and resort trips, and we take these trips ourselves — which is how we know which questions are worth asking.</p>
           <p>Waveline started because booking a vacation had turned into a research project. Somewhere between the comparison tabs and the fine print, the fun goes out of it. We'd rather do that part for you.</p>
         </div>
         <div class="portrait">
@@ -467,14 +448,22 @@
     </div>
   </section>
 
-  <!-- ============ 3. WHERE WE'VE BEEN ============ -->
+  <!-- ============ 3. WHERE WE'VE BEEN — HIDDEN UNTIL PHOTOS EXIST ============
+       This section claims "every ship, resort and port below is somewhere we've
+       actually been" and then showed six empty placeholders, which undercut the
+       claim it was making. Commented out rather than deleted: drop real photos
+       into the figures below, then remove this comment wrapper to republish.
+       Photo guidance is preserved inside.
+  -->
+  <!--
+  <!~~ ============ 3. WHERE WE'VE BEEN ============ ~~>
   <section class="band">
     <div class="wrap">
       <div class="eyebrow">Where we've been</div>
       <h2>We don't recommend places we haven't seen.</h2>
       <p class="lede">Every ship, resort, and port below is somewhere we've actually been. When we tell you a room category is worth the upgrade, it's because we've stayed in it.</p>
 
-      <!--
+      <!~~
         PHOTO GUIDANCE
         - Best photos are ones taken somewhere you actually sell: a ship, a resort, a park.
         - Caption each with the specific ship/resort/place and the year — that turns a
@@ -482,12 +471,12 @@
         - Save as WebP in /photos/, target under 200KB each, and keep width/height
           attributes so the page doesn't shift while loading.
         - Add or remove figures freely; the grid reflows at 3 / 2 / 1 columns.
-      -->
+      ~~>
 
       <div class="gallery">
         <figure class="shot">
           <div class="frame">
-            <!-- REPLACE: <img src="/photos/trip-01.webp" alt="..." width="800" height="600" loading="lazy"> -->
+            <!~~ REPLACE: <img src="/photos/trip-01.webp" alt="..." width="800" height="600" loading="lazy"> ~~>
             <div class="ph">Photo 1<br>800 × 600 WebP</div>
           </div>
           <figcaption><strong>Ship or resort name</strong> — port or location, year</figcaption>
@@ -516,6 +505,8 @@
     </div>
   </section>
 
+  -->
+
   <!-- ============ 4. CREDENTIALS ============ -->
   <section class="band shade">
     <div class="wrap narrow">
@@ -530,12 +521,12 @@
 
       <p style="margin-top:28px;"><strong style="color:var(--teal-deep);">Supplier certifications</strong></p>
       <div class="cred-strip">
-        <a class="supplier-badge" href="/norwegian-cruise-line-travel-advisor.html">Norwegian Cruise Line</a>
-        <a class="supplier-badge" href="/carnival-cruise-line-travel-advisor.html">Carnival</a>
-        <a class="supplier-badge" href="/royal-caribbean-travel-advisor.html">Royal Caribbean</a>
-        <a class="supplier-badge" href="/disney-cruise-line-travel-advisor.html">Disney Cruise Line</a>
-        <a class="supplier-badge" href="/disney-resorts-travel-advisor.html">Disney Resorts</a>
-        <a class="supplier-badge" href="/sandals-resorts-travel-advisor.html">Sandals Resorts</a>
+        <a class="supplier-badge" href="/norwegian-cruise-line-travel-advisor">Norwegian Cruise Line</a>
+        <a class="supplier-badge" href="/carnival-cruise-line-travel-advisor">Carnival</a>
+        <a class="supplier-badge" href="/royal-caribbean-travel-advisor">Royal Caribbean</a>
+        <a class="supplier-badge" href="/disney-cruise-line-travel-advisor">Disney Cruise Line</a>
+        <a class="supplier-badge" href="/disney-resorts-travel-advisor">Disney Resorts</a>
+        <a class="supplier-badge" href="/sandals-resorts-travel-advisor">Sandals Resorts</a>
       </div>
     </div>
   </section>
@@ -569,7 +560,7 @@
   <nav class="footer-nav">
     <a href="/#specialties">Cruises</a>
     <a href="/#specialties">Resorts</a>
-    <a href="/about.html">About</a>
+    <a href="/about">About</a>
     <a href="/#credentials">Credentials</a>
     <a href="/#consultation">Contact</a>
   </nav>

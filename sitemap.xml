@@ -6,37 +6,37 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/about.html</loc>
+    <loc>https://wavelinetravel.com/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/norwegian-cruise-line-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/norwegian-cruise-line-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/carnival-cruise-line-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/carnival-cruise-line-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/royal-caribbean-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/royal-caribbean-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/disney-cruise-line-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/disney-cruise-line-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/disney-resorts-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/disney-resorts-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://wavelinetravel.com/sandals-resorts-travel-advisor.html</loc>
+    <loc>https://wavelinetravel.com/sandals-resorts-travel-advisor</loc>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
