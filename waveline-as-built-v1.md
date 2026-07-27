@@ -149,6 +149,7 @@ Audited against the live site on 27 July 2026, then remediated the same day.
 **Structural**
 
 - **Watch for silent regressions across sessions.** The social links and `sameAs` shipped on 25 July and were absent from the file audited on 27 July, while the header fix from the same session survived. Before starting work, diff the project copy against what's actually live rather than assuming the project copy is newer.
+- **The six supplier pages are not byte-identical templates.** `sandals-resorts-travel-advisor.html` formats its CSS across multiple lines where the other five use single-line rules. The rules themselves are equivalent, but any edit applied by exact string match will silently skip Sandals. Verify edits by parsing the CSS or rendering the page, not by matching formatted source.
 - **No shared partials.** Nav, footer, and now the social-meta block are duplicated across eight files. Manageable at current scale; a real liability past ten pages. The social-meta block in particular is now eleven identical lines in eight places.
 
 ---
