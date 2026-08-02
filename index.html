@@ -328,7 +328,7 @@
   @media (max-width: 720px) {
     .site-nav .nav-link { display: none; }
     .site-nav { gap: 16px; }
-    .nav-tel { min-height: 44px; }
+    .nav-tel { display: none; }
     .nav-cta { min-height: 44px; display: inline-flex; align-items: center; }
   }
 
@@ -509,10 +509,12 @@
         rgba(250,248,244,0.14) 56%, rgba(250,248,244,0) 72%);
     }
     .photo-frame {
-      position: relative;
+      position: static;
+      right: auto;
+      bottom: auto;
       width: 168px;
       height: 168px;
-      margin-top: 28px;
+      margin: 28px 0 0;
     }
     .photo-caption { font-size: 0.8rem; padding: 20px 12px 9px; }
     .actions { margin-top: 30px; gap: 14px; }
