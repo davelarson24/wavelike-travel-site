@@ -409,43 +409,6 @@
   .cta svg { transition: transform var(--dur-quick) var(--ease-reveal); }
   .cta:hover svg { transform: translateX(4px); }
 
-  .cta-secondary {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    padding: 15px 26px;
-    border-radius: 999px;
-    border: 1px solid rgba(27,79,88,0.42);
-    background: rgba(250,248,244,0.42);
-    color: var(--teal-deep);
-    font-weight: 600;
-    font-size: 15px;
-    letter-spacing: 0.01em;
-    text-decoration: none;
-    transition: background var(--dur-instant) ease, border-color var(--dur-instant) ease;
-  }
-
-  .cta-secondary:hover { background: rgba(250,248,244,0.8); border-color: rgba(27,79,88,0.7); }
-  .cta-secondary:focus-visible { outline: 3px solid var(--amber); outline-offset: 3px; }
-
-  .trust-stack {
-    display: flex;
-    flex-direction: column;
-    gap: 7px;
-    margin-top: 24px;
-  }
-
-  .trust-line {
-    margin: 0;
-    max-width: 46ch;
-    font-size: 0.98rem;
-    font-weight: 500;
-    line-height: 1.5;
-    color: var(--body-text);
-    text-shadow: 0 2px 14px rgba(15,35,40,0.18);
-  }
-
   .credential-line {
     font-size: 12px;
     font-weight: 500;
@@ -456,12 +419,11 @@
   }
 
   .photo-frame {
-    /* Mobile-first default: sits in the flow, below the CTA. Never covers copy. */
-    position: relative;
-    align-self: flex-start;
-    width: min(190px, 46vw);
-    height: min(190px, 46vw);
-    margin-top: 28px;
+    position: absolute;
+    right: 8vw;
+    bottom: 12vh;
+    width: 390px;
+    height: 390px;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 18px 40px rgba(15,35,40,0.28), 0 2px 0 rgba(250,248,244,0.6) inset;
@@ -497,45 +459,6 @@
     display: block;
   }
 
-  /* Float the photo into the hero corner only when the viewport is wide AND tall
-     enough to hold it. Sized against vh/vw so it can never smother the copy. */
-  @media (min-width: 721px) and (min-height: 620px) {
-    .photo-frame {
-      position: absolute;
-      right: 8vw;
-      bottom: clamp(28px, 12vh, 150px);
-      width: min(390px, 40vh, 34vw);
-      height: min(390px, 40vh, 34vw);
-      margin-top: 0;
-    }
-  }
-
-  /* Landscape phones / short windows: wide but not tall. Compress the hero and
-     keep the photo small in the bottom corner, clear of the headline. */
-  @media (min-width: 721px) and (max-height: 619px) {
-    .hero {
-      height: auto;
-      min-height: 100svh;
-      padding: 92px 8vw 36px;
-      justify-content: center;
-    }
-    .headline { font-size: clamp(1.9rem, 3.6vw, 2.9rem); margin-top: 14px; max-width: 17ch; }
-    .subhead { font-size: 0.98rem; margin-top: 14px; max-width: 46ch; }
-    .actions { margin-top: 22px; gap: 16px; }
-    .trust-stack { margin-top: 16px; gap: 4px; }
-    .trust-line { font-size: 0.9rem; }
-    .photo-frame {
-      position: absolute;
-      right: 5vw;
-      bottom: 26px;
-      width: min(180px, 34vh);
-      height: min(180px, 34vh);
-      margin-top: 0;
-    }
-    .photo-caption { font-size: 0.8rem; padding: 20px 12px 9px; }
-    .scroll-cue { display: none; }
-  }
-
   /* ---------- Phone layout (single canonical breakpoint) ---------- */
   @media (max-width: 720px) {
     .hero {
@@ -549,13 +472,15 @@
         rgba(250,248,244,0.78) 0%, rgba(250,248,244,0.5) 34%,
         rgba(250,248,244,0.14) 56%, rgba(250,248,244,0) 72%);
     }
-    .photo-frame { width: min(168px, 44vw); height: min(168px, 44vw); }
+    .photo-frame {
+      position: relative;
+      width: 168px;
+      height: 168px;
+      margin-top: 28px;
+    }
     .photo-caption { font-size: 0.8rem; padding: 20px 12px 9px; }
-    .actions { margin-top: 30px; gap: 12px; }
+    .actions { margin-top: 30px; gap: 14px; }
     .cta { width: 100%; justify-content: center; min-height: 56px; }
-    .cta-secondary { width: 100%; min-height: 52px; }
-    .trust-stack { margin-top: 18px; gap: 6px; }
-    .trust-line { font-size: 0.94rem; }
     .scroll-cue { display: none; }
     .statement { padding-left: 24px; padding-right: 24px; }
     .problem { padding: 9vh 24px; }
@@ -809,23 +734,6 @@
   }
 
   .pain-point.open p { opacity: 1; transition-delay: 90ms; }
-
-  /* ---------- FAQ (reuses the accordion card styling) ---------- */
-
-  .faq-block { margin-top: 64px; }
-
-  .faq-list {
-    grid-template-columns: 1fr;
-    gap: 12px;
-    margin-top: 22px;
-    max-width: 780px;
-  }
-
-  .faq-list .pain-toggle { padding: 20px 22px; }
-  .faq-list .pain-label { font-size: 1rem; }
-  .faq-list .pain-point p { padding: 0 22px 20px; }
-
-  @media (max-width: 720px) { .faq-block { margin-top: 48px; } }
 
   /* ---------- Generic solid section shell ---------- */
 
@@ -1235,39 +1143,6 @@
     .card:hover, .card:hover .card-photo { transform: none !important; }
   }
 </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "FAQPage",
-  "mainEntity": [
-    {
-      "@type": "Question",
-      "name": "What does it cost to work with you?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Nothing extra. Cruise lines and resorts set one rate across every booking channel, so you pay the same as booking direct. We\u2019re paid a commission by the supplier after you travel \u2014 there\u2019s no booking fee and no markup from us." }
-    },
-    {
-      "@type": "Question",
-      "name": "Do I lose control of my booking?",
-      "acceptedAnswer": { "@type": "Answer", "text": "No. The booking sits in your name in the cruise line\u2019s or resort\u2019s own system, with your own confirmation number. You can still log in, pick dining times, and add excursions yourself. You just have someone to call when you\u2019d rather not." }
-    },
-    {
-      "@type": "Question",
-      "name": "Can I still use my cruise line loyalty number?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Your loyalty number goes on the booking exactly as it would if you booked direct, and you keep earning points and status benefits." }
-    },
-    {
-      "@type": "Question",
-      "name": "What if I\u2019ve already booked something?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Sometimes we can take over an existing booking \u2014 it depends on the cruise line and how recently you booked. Royal Caribbean, for example, allows transfers within 60 days. Send us the confirmation number and we\u2019ll tell you straight away whether it\u2019s possible." }
-    },
-    {
-      "@type": "Question",
-      "name": "What happens after I get in touch?",
-      "acceptedAnswer": { "@type": "Answer", "text": "We reply within one business day, by email or phone \u2014 whichever you asked for. The first step is a conversation about what you want out of the trip, not a quote pushed at you." }
-    }
-  ]
-}
-</script>
 </head>
 <body>
 
@@ -1291,8 +1166,8 @@
     </div>
   </a>
   <nav class="site-nav">
-    <a class="nav-link" href="#cruises">Cruises</a>
-    <a class="nav-link" href="#resorts">Resorts</a>
+    <a class="nav-link" href="#specialties">Cruises</a>
+    <a class="nav-link" href="#specialties">Resorts</a>
     <a class="nav-link" href="/about">About</a>
     <a class="nav-link" href="#credentials">Credentials</a>
     <a class="nav-cta" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">Book a consult</a>
@@ -1305,18 +1180,12 @@
     <div class="text-scrim"></div>
     <div class="eyebrow">Cruise &amp; resort specialists</div>
     <h1 class="headline">The trip you want, <em>minus</em> the homework</h1>
-    <p class="subhead">We’re Dave and Deanna — we’ve sailed it, stayed there, and we pick up the phone.</p>
+    <p class="subhead">We're Dave and Deanna — we've sailed it, stayed there, and we pick up the phone.</p>
     <div class="actions">
-      <button class="cta magnetic" id="heroCta">
+      <a class="cta magnetic" id="heroCta" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
         Start Planning My Trip
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1B4F58" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-      </button>
-      <a class="cta-secondary" href="mailto:hello@wavelinetravel.com?subject=Question%20for%20Waveline%20Travel">
-        Ask us a question
       </a>
-    </div>
-    <div class="trust-stack">
-      <p class="trust-line">Same price as booking direct. No booking fee — the supplier pays us.</p>
       <span class="credential-line">CLIA &amp; IATAN Accredited · Atlas Coast Travel Group</span>
     </div>
 <a class="photo-frame" href="/about">
@@ -1331,30 +1200,30 @@
   <section class="statement" id="statement">
     <div class="text-scrim"></div>
     <div class="statement-inner reveal">
-      <p class="statement-tagline">Ride the wave <em>with us</em></p>
-      <p class="statement-copy">First cruise or fifteenth. An anniversary, a spring break, or the whole extended family. From open sea to swim-up bar, we handle everything between here and there.</p>
+      <p class="statement-tagline">Ride the wave to <em>somewhere new</em></p>
+      <p class="statement-copy">From open sea to swim-up bar, we handle everything between here and there.</p>
     </div>
   </section>
 
   <section class="problem" id="problem">
     <div class="text-scrim"></div>
     <div class="problem-inner">
-      <div class="section-eyebrow reveal">Why people call us</div>
-      <h2 class="problem-headline reveal">Real answers, better perks, and the same two people throughout.</h2>
-      <p class="problem-lede reveal">You don’t need to become an expert on ships and resorts. We already are.</p>
+      <div class="section-eyebrow reveal">The problem</div>
+      <h2 class="problem-headline reveal">Get your evenings back. Booking shouldn't be a second job.</h2>
+      <p class="problem-lede reveal">You don't need to become an expert on ships and resorts. We already are.</p>
       <ul class="pain-points">
         <li class="pain-point reveal">
           <h3 class="pain-title">
             <button class="pain-toggle" aria-expanded="false" aria-controls="pain-body-1">
               <svg class="wave-mark" width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true"><path d="M1 9C4 4 8 4 11 9C14 14 18 14 21 9" stroke="#1B4F58" stroke-width="1.8" stroke-linecap="round"/></svg>
               <span class="pain-head">
-                <span class="pain-label">A straight answer</span>
+                <span class="pain-label">No straight answer</span>
                 <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </button>
           </h3>
           <div class="pain-reveal" id="pain-body-1">
-            <div class="pain-reveal-inner"><p>The same room can cost three different prices depending on when you look and what you click. We’ll tell you which one is actually a good deal, and why.</p></div>
+            <div class="pain-reveal-inner"><p>The same room can cost three different prices depending on when you look and what you click. We'll tell you which one is actually good.</p></div>
           </div>
         </li>
         <li class="pain-point reveal">
@@ -1362,13 +1231,13 @@
             <button class="pain-toggle" aria-expanded="false" aria-controls="pain-body-2">
               <svg class="wave-mark" width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true"><path d="M1 9C4 4 8 4 11 9C14 14 18 14 21 9" stroke="#1B4F58" stroke-width="1.8" stroke-linecap="round"/></svg>
               <span class="pain-head">
-                <span class="pain-label">Perks you'd otherwise miss</span>
+                <span class="pain-label">No perks offered</span>
                 <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </button>
           </h3>
           <div class="pain-reveal" id="pain-body-2">
-            <div class="pain-reveal-inner"><p>Onboard credit, a better cabin category, dinners that don’t cost extra. We know what’s available on your sailing and exactly what to ask for.</p></div>
+            <div class="pain-reveal-inner"><p>Onboard credit, a better room, dinners that don't cost extra — the booking site won't mention any of it. We know what to ask for.</p></div>
           </div>
         </li>
         <li class="pain-point reveal">
@@ -1376,13 +1245,13 @@
             <button class="pain-toggle" aria-expanded="false" aria-controls="pain-body-3">
               <svg class="wave-mark" width="26" height="18" viewBox="0 0 26 18" fill="none" aria-hidden="true"><path d="M1 9C4 4 8 4 11 9C14 14 18 14 21 9" stroke="#1B4F58" stroke-width="1.8" stroke-linecap="round"/></svg>
               <span class="pain-head">
-                <span class="pain-label">Someone who picks up</span>
+                <span class="pain-label">No one to call</span>
                 <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
               </span>
             </button>
           </h3>
           <div class="pain-reveal" id="pain-body-3">
-            <div class="pain-reveal-inner"><p>You get the same two people the whole way through — before you book, while you’re away, and after you’re home.</p></div>
+            <div class="pain-reveal-inner"><p>Booking sites give you an 800 number and whoever picks up. You get the same two people — before you book, while you're away, and after you're home.</p></div>
           </div>
         </li>
       </ul>
@@ -1396,7 +1265,7 @@
       <p class="section-support reveal">Same price as booking direct — but we've sailed, lounged, and survived the Dumbo line.</p>
     </div>
     <div class="specialty-grid">
-      <a class="card card-cruises reveal" id="cruises" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
+      <a class="card card-cruises reveal" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
         <span class="card-photo"></span>
         <span class="card-overlay"></span>
         <svg class="card-icon" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M4 22h22M6 22l1-9h16l1 9M13 13V6h4v7" stroke="#FAF8F4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
@@ -1407,13 +1276,13 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h9M8 3.5l3.5 3.5L8 10.5" stroke="#FAF8F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
       </a>
-      <a class="card card-resorts reveal" id="resorts" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
+      <a class="card card-resorts reveal" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
         <span class="card-photo"></span>
         <span class="card-overlay"></span>
         <svg class="card-icon" width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="10" r="4" stroke="#FAF8F4" stroke-width="1.6"/><path d="M4 24c1.5-7 6-10 11-10s9.5 3 11 10" stroke="#FAF8F4" stroke-width="1.6" fill="none"/></svg>
         <h3>Total Relaxation</h3>
         <span class="card-kicker">Resorts</span>
-        <p>The right property and room category for how you actually travel — from someone who has stayed there.</p>
+        <p>The right property and room category for how you actually travel — not just the best banner ad.</p>
         <span class="card-link">Start a resort inquiry
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 7h9M8 3.5l3.5 3.5L8 10.5" stroke="#FAF8F4" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </span>
@@ -1472,84 +1341,13 @@
       <div class="process-step reveal">
         <div class="step-label">We build options</div>
         <h3>Side-by-side, honestly</h3>
-        <p>You get a short list of real options with real pricing, and a plain explanation of the trade-offs between them.</p>
+        <p>You get a short list of real options with real pricing — not one pushed pick with a markup baked in.</p>
       </div>
       <div class="process-step reveal">
         <div class="step-label">We support the trip</div>
         <h3>From booking onward</h3>
-        <p>Plans change. When they do, you reach the same two people who booked the trip.</p>
+        <p>Plans change. When they do you reach the same two people, not a hold queue.</p>
       </div>
-    </div>
-
-    <div class="faq-block">
-      <div class="section-eyebrow reveal">Common questions</div>
-      <ul class="pain-points faq-list">
-        <li class="pain-point reveal">
-          <h3 class="pain-title">
-            <button class="pain-toggle" aria-expanded="false" aria-controls="faq-body-1">
-              <span class="pain-head">
-                <span class="pain-label">What does it cost to work with you?</span>
-                <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </h3>
-          <div class="pain-reveal" id="faq-body-1">
-            <div class="pain-reveal-inner"><p>Nothing extra. Cruise lines and resorts set one rate across every booking channel, so you pay the same as booking direct. We&rsquo;re paid a commission by the supplier after you travel &mdash; there&rsquo;s no booking fee and no markup from us.</p></div>
-          </div>
-        </li>
-        <li class="pain-point reveal">
-          <h3 class="pain-title">
-            <button class="pain-toggle" aria-expanded="false" aria-controls="faq-body-2">
-              <span class="pain-head">
-                <span class="pain-label">Do I lose control of my booking?</span>
-                <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </h3>
-          <div class="pain-reveal" id="faq-body-2">
-            <div class="pain-reveal-inner"><p>No. The booking sits in your name in the cruise line&rsquo;s or resort&rsquo;s own system, with your own confirmation number. You can still log in, pick dining times, and add excursions yourself. You just have someone to call when you&rsquo;d rather not.</p></div>
-          </div>
-        </li>
-        <li class="pain-point reveal">
-          <h3 class="pain-title">
-            <button class="pain-toggle" aria-expanded="false" aria-controls="faq-body-3">
-              <span class="pain-head">
-                <span class="pain-label">Can I still use my cruise line loyalty number?</span>
-                <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </h3>
-          <div class="pain-reveal" id="faq-body-3">
-            <div class="pain-reveal-inner"><p>Yes. Your loyalty number goes on the booking exactly as it would if you booked direct, and you keep earning points and status benefits.</p></div>
-          </div>
-        </li>
-        <li class="pain-point reveal">
-          <h3 class="pain-title">
-            <button class="pain-toggle" aria-expanded="false" aria-controls="faq-body-4">
-              <span class="pain-head">
-                <span class="pain-label">What if I&rsquo;ve already booked something?</span>
-                <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </h3>
-          <div class="pain-reveal" id="faq-body-4">
-            <div class="pain-reveal-inner"><p>Sometimes we can take over an existing booking &mdash; it depends on the cruise line and how recently you booked. Royal Caribbean, for example, allows transfers within 60 days. Send us the confirmation number and we&rsquo;ll tell you straight away whether it&rsquo;s possible.</p></div>
-          </div>
-        </li>
-        <li class="pain-point reveal">
-          <h3 class="pain-title">
-            <button class="pain-toggle" aria-expanded="false" aria-controls="faq-body-5">
-              <span class="pain-head">
-                <span class="pain-label">What happens after I get in touch?</span>
-                <svg class="chev" width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true"><path d="M3.5 5.5L7 9l3.5-3.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-              </span>
-            </button>
-          </h3>
-          <div class="pain-reveal" id="faq-body-5">
-            <div class="pain-reveal-inner"><p>We reply within one business day, by email or phone &mdash; whichever you asked for. The first step is a conversation about what you want out of the trip, not a quote pushed at you.</p></div>
-          </div>
-        </li>
-      </ul>
     </div>
   </section>
 
@@ -1607,10 +1405,19 @@
       <a href="https://x.com/WavelineTravel" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on X"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M3.2 3h3.6l3.5 4.7L14.6 3h2.3l-5.4 6.1L17.3 17h-3.6l-3.8-5.1L5.2 17H2.9l5.7-6.5L3.2 3zm2.3 1.4 8.9 11.2h1.4L6.9 4.4H5.5z" fill="currentColor"/></svg></a>
       <a href="https://www.tiktok.com/@wavelinetravel" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on TikTok"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M12.5 2.2c.4 1.7 1.6 2.9 3.4 3.1v2.3c-1.2 0-2.4-.4-3.4-1.1v5.1c0 2.6-2.1 4.7-4.7 4.7S3.1 14.2 3.1 11.6c0-2.5 2-4.6 4.5-4.7v2.4c-1.2.1-2.1 1.1-2.1 2.3 0 1.3 1 2.3 2.3 2.3s2.3-1 2.3-2.3V2.2h2.4z" fill="currentColor"/></svg></a>
     </div>
+    <!--
+    <div class="footer-social">
+      <a href="https://www.instagram.com/REPLACE" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on Instagram"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><rect x="2" y="2" width="16" height="16" rx="4" stroke="currentColor" stroke-width="1.4"/><circle cx="10" cy="10" r="3.6" stroke="currentColor" stroke-width="1.4"/><circle cx="14.6" cy="5.4" r="1" fill="currentColor"/></svg></a>
+      <a href="https://www.tiktok.com/@REPLACE" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on TikTok"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M12.5 2.2c.4 1.7 1.6 2.9 3.4 3.1v2.3c-1.2 0-2.4-.4-3.4-1.1v5.1c0 2.6-2.1 4.7-4.7 4.7S3.1 14.2 3.1 11.6c0-2.5 2-4.6 4.5-4.7v2.4c-1.2.1-2.1 1.1-2.1 2.3 0 1.3 1 2.3 2.3 2.3s2.3-1 2.3-2.3V2.2h2.4z" fill="currentColor"/></svg></a>
+      <a href="https://www.facebook.com/REPLACE" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on Facebook"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M12 6.5h1.6V3.8h-2C9.6 3.8 8.6 5 8.6 6.8v1.9H7v2.6h1.6V17h2.7v-5.7h2l.4-2.6h-2.4V7c0-.4.3-.5.7-.5z" stroke="currentColor" stroke-width="0.6" fill="currentColor"/></svg></a>
+      <a href="https://x.com/REPLACE" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on X"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><path d="M3.2 3h3.6l3.5 4.7L14.6 3h2.3l-5.4 6.1L17.3 17h-3.6l-3.8-5.1L5.2 17H2.9l5.7-6.5L3.2 3zm2.3 1.4 8.9 11.2h1.4L6.9 4.4H5.5z" fill="currentColor"/></svg></a>
+      <a href="https://www.youtube.com/@REPLACE" target="_blank" rel="noopener noreferrer me" aria-label="Waveline Travel on YouTube"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" aria-hidden="true" focusable="false"><rect x="1.8" y="4.6" width="16.4" height="10.8" rx="3.2" stroke="currentColor" stroke-width="1.4"/><path d="M8.4 7.6v4.8l4.1-2.4-4.1-2.4z" fill="currentColor"/></svg></a>
+    </div>
+    -->
   </div>
   <div class="footer-nav">
-    <a href="#cruises">Cruises</a>
-    <a href="#resorts">Resorts</a>
+    <a href="#specialties">Cruises</a>
+    <a href="#specialties">Resorts</a>
     <a href="/about">About</a>
     <a href="#credentials">Credentials</a>
     <a href="#consultation">Contact</a>
@@ -1622,10 +1429,10 @@
 </footer>
 
 <div class="sticky-cta" id="stickyCta">
-  <button class="cta" id="stickyCtaBtn">
+  <a class="cta" id="stickyCtaBtn" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
     Start Planning My Trip
     <svg width="16" height="16" viewBox="0 0 16 16" fill="none"><path d="M3 8h10M9 4l4 4-4 4" stroke="#1B4F58" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-  </button>
+  </a>
 </div>
 
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
@@ -1683,10 +1490,6 @@
     btn.addEventListener('mouseleave', function() { btn.style.transform = 'translate(0,0)'; });
   });
 
-  document.getElementById('heroCta').addEventListener('click', function() {
-    document.getElementById('consultation').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-  });
-
   /* Sticky bottom CTA: shows between hero and consultation on phones */
   var stickyBar = document.getElementById('stickyCta');
   if (stickyBar && 'IntersectionObserver' in window) {
@@ -1704,9 +1507,6 @@
       new IntersectionObserver(function(e) { footerVisible = e[0].isIntersecting; updateSticky(); }, { threshold: 0.01 })
         .observe(footerEl);
     }
-    document.getElementById('stickyCtaBtn').addEventListener('click', function() {
-      document.getElementById('consultation').scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth' });
-    });
   }
 
   /* Header condenses into a solid bar once the hero starts leaving */
@@ -1742,7 +1542,7 @@
     var dbgBox = document.createElement('div');
     dbgBox.style.cssText = 'position:fixed;left:8px;bottom:8px;z-index:99;background:rgba(18,56,64,0.85);color:#FAF8F4;font:11px/1.5 monospace;padding:8px 10px;border-radius:8px;max-width:70vw;pointer-events:none;';
     document.body.appendChild(dbgBox);
-    window.__wlDebug = function(msg) { dbgBox.textContent += msg + ' \u00b7 '; };
+    window.__wlDebug = function(msg) { dbgBox.textContent += msg + ' · '; };
     window.__wlDebug((isTouch ? 'touch' : 'mouse') + '/' + (isLite ? 'lite' : 'full'));
   }
   function startOcean() {
