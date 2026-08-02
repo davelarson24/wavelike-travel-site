@@ -327,8 +327,8 @@
 
   @media (max-width: 720px) {
     .site-nav .nav-link { display: none; }
-    .site-nav .nav-tel { display: none; }
     .site-nav { gap: 16px; }
+    .nav-tel { min-height: 44px; }
     .nav-cta { min-height: 44px; display: inline-flex; align-items: center; }
   }
 
@@ -510,8 +510,6 @@
     }
     .photo-frame {
       position: relative;
-      right: auto;
-      bottom: auto;
       width: 168px;
       height: 168px;
       margin-top: 28px;
@@ -848,12 +846,34 @@
     background: linear-gradient(180deg, rgba(18,56,64,0.05) 0%, rgba(18,56,64,0.78) 78%, rgba(18,56,64,0.92) 100%);
   }
 
-  .card-cruises .card-photo { background-color: #0E5C8A; background-image: radial-gradient(circle at 30% 20%, #3E77AD, #0E5C8A 60%, #123840 100%); }
-  .card-resorts .card-photo { background-color: #E4A032; background-image: radial-gradient(circle at 70% 15%, #F0985C, #E4A032 55%, #8FA9B0 100%); }
+  /* Set Sail — crossfade slideshow (5 photos, ~12s loop) */
+  .card-cruises .card-photo { background-color: #0E5C8A; overflow: hidden; }
+  .card-slideshow img {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; object-position: center;
+    opacity: 0; animation: cruiseFade 12s infinite; will-change: opacity;
+  }
+  .card-slideshow img:nth-child(1) { opacity: 1; animation-delay: 0s; }
+  .card-slideshow img:nth-child(2) { animation-delay: -2.4s; }
+  .card-slideshow img:nth-child(3) { animation-delay: -4.8s; object-position: center 35%; }
+  .card-slideshow img:nth-child(4) { animation-delay: -7.2s; }
+  .card-slideshow img:nth-child(5) { animation-delay: -9.6s; }
+  @keyframes cruiseFade { 0% { opacity: 1; } 17% { opacity: 1; } 25% { opacity: 0; } 92% { opacity: 0; } 100% { opacity: 1; } }
+
+  /* Total Relaxation — muted looping video with poster fallback */
+  .card-resorts .card-photo { background-color: #123840; background-image: url('/resort-poster.webp'); }
+  .card .card-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: center; }
+
+  /* New card motion extends the global reduced-motion baseline */
+  @media (prefers-reduced-motion: reduce) {
+    .card-slideshow img { animation: none; opacity: 0; }
+    .card-slideshow img:nth-child(1) { opacity: 1; }
+    .card-resorts .card-video { display: none; }
+  }
 
   .card > * { position: relative; z-index: 1; }
 
-  .card .card-icon { margin-bottom: 16px; }
+  .card .card-icon { margin-bottom: 16px; filter: drop-shadow(0 1px 4px rgba(15,35,40,0.45)); }
 
   .card h3 {
     font-family: 'Fraunces', serif;
@@ -1309,7 +1329,13 @@
     </div>
     <div class="specialty-grid">
       <a class="card card-cruises reveal" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
-        <span class="card-photo"></span>
+        <span class="card-photo card-slideshow">
+          <img src="/cruise-1.webp" alt="Carnival Breeze and Sensation anchored off Cozumel" loading="lazy" decoding="async">
+          <img src="/cruise-2.webp" alt="Royal Caribbean Adventure of the Seas at the pier" loading="lazy" decoding="async">
+          <img src="/cruise-3.webp" alt="Carnival Horizon in port" loading="lazy" decoding="async">
+          <img src="/cruise-4.webp" alt="Holland America ship in Alaska" loading="lazy" decoding="async">
+          <img src="/cruise-5.webp" alt="Dave and Deanna at the cruise pier" loading="lazy" decoding="async">
+        </span>
         <span class="card-overlay"></span>
         <svg class="card-icon" width="30" height="30" viewBox="0 0 30 30" fill="none"><path d="M4 22h22M6 22l1-9h16l1 9M13 13V6h4v7" stroke="#FAF8F4" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
         <h3>Set Sail</h3>
@@ -1321,6 +1347,9 @@
       </a>
       <a class="card card-resorts reveal" href="https://myatlasgo.com/form/atlas-f31ee7" target="_blank" rel="noopener noreferrer">
         <span class="card-photo"></span>
+        <video class="card-video" autoplay muted loop playsinline poster="/resort-poster.webp">
+          <source src="/resort.mp4" type="video/mp4">
+        </video>
         <span class="card-overlay"></span>
         <svg class="card-icon" width="30" height="30" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="10" r="4" stroke="#FAF8F4" stroke-width="1.6"/><path d="M4 24c1.5-7 6-10 11-10s9.5 3 11 10" stroke="#FAF8F4" stroke-width="1.6" fill="none"/></svg>
         <h3>Total Relaxation</h3>
